@@ -55,6 +55,7 @@ function onError() {
   error({
     text: 'There is no such country',
     type: ' error',
+    animateSpeed: 'fast',
   });
 }
 
@@ -62,5 +63,6 @@ function onAlert() {
   alert({
     text: 'Too many matches found.',
     type: 'info',
+    animateSpeed: 'fast',
   });
 }
