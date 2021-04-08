@@ -1,15 +1,16 @@
 import './styles.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
+
 // import '@pnotify/core/dist/Material.css';
-import { alert, error } from '@pnotify/core';
+import { alert, error, defaults } from '@pnotify/core';
 
 import getRefs from './js/refs.js';
 import fetchCountries from './js/fetchCountries.js';
 import { renderList, renderMarkup } from './js/render-markup';
 
 import debounce from 'lodash.debounce';
-
+defaults.animateSpeed = 'fast';
 const refs = getRefs();
 
 refs.inputRef.addEventListener('input', debounce(onInput, 500));
