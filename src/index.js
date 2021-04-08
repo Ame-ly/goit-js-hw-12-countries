@@ -43,9 +43,8 @@ function onResponse(countries) {
   } else if (cl === 1) {
     resetListRef();
     return renderMarkup(countries);
-  } else {
-    return onError();
   }
+  onError();
 }
 
 function resetListRef() {
