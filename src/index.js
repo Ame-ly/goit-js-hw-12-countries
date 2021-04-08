@@ -15,35 +15,36 @@ const refs = getRefs();
 refs.inputRef.addEventListener('input', debounce(onInput, 500));
 
 function onInput(e) {
-  e.preventDefault();
-
   const valueInput = e.target.value;
 
   if (valueInput !== '') {
-    fetchCountries(valueInput).then(onResponse);
+    fetchCountries(valueInput)
+      .then(data => {
+        onResponse(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 }
-console.log(refs);
 
 function onResponse(countries) {
   const cl = countries.length;
+
   if (cl > 10) {
     return onAlert();
   } else if (cl >= 2 && cl <= 10) {
     return renderList(countries);
   } else if (cl === 1) {
-    onFinally();
+    resetListRef();
     return renderMarkup(countries);
+  } else {
+    return onError();
   }
-  onError();
 }
 
-function onFinally() {
+function resetListRef() {
   refs.listRef.innerHTML = '';
-
-  setTimeout(() => {
-    refs.inputRef.innerHTML = '';
-  }, 600);
 }
 
 function onError() {
