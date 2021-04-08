@@ -25,11 +25,11 @@ function onInput(e) {
       .catch(error => {
         console.error(error);
       })
-      .finally(() => {
-        setTimeout(() => {
-          e.target.value = ' ';
-        }, 7000);
-      });
+      // .finally(() => {
+      //   setTimeout(() => {
+      //     e.target.value = ' ';
+      //   }, 7000);
+      // });
   }
 }
 
