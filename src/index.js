@@ -3,7 +3,8 @@ import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 
 // import '@pnotify/core/dist/Material.css';
-import { alert, error, defaults } from '@pnotify/core';
+import { alert, error } from '@pnotify/core';
+import {  defaults } from '@pnotify/core';
 
 import getRefs from './js/refs.js';
 import fetchCountries from './js/fetchCountries.js';
