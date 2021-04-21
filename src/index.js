@@ -17,6 +17,7 @@ const refs = getRefs();
 refs.inputRef.addEventListener('input', debounce(onInput, 500));
 
 function onInput(e) {
+ resetCard();
   const valueInput = e.target.value;
 
   if (valueInput !== '') {
@@ -27,11 +28,7 @@ function onInput(e) {
       .catch(error => {
         console.error(error);
       })
-      // .finally(() => {
-      //   setTimeout(() => {
-      //     e.target.value = ' ';
-      //   }, 7000);
-      // });
+      
   }
 }
 
@@ -51,6 +48,9 @@ function onResponse(countries) {
 
 function resetListRef() {
   refs.listRef.innerHTML = '';
+}
+function resetCard() {
+  refs.cardRef.innerHTML = '';
 }
 
 function onError() {
